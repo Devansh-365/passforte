@@ -47,5 +47,27 @@ model User {
   sessions       Session[]
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+
+  sites          Site[]
 }
 
+model Site {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  encryptionKeyHint String
+  name              String
+  accounts          SiteAccount[]
+  userId            String
+  user              User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SiteAccount {
+  id                String   @id @default(cuid())
+  email             String
+  encryptedPassword String
+  site              Site   @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  siteId            String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
