@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 import React from "react";
+import Image from "next/image";
 
 export default async function Navbar() {
   //   const user = await getCurrentUser();
@@ -10,7 +11,8 @@ export default async function Navbar() {
     <header className="fixed top-0 left-0 z-10 w-full border-b border-[rgba(255, 255, 255, 0.08)] backdrop-blur-[12px]">
       <div className="max-w-[120rem] px-8 text-center h-12 flex">
         <Link className="flex items-center text-md" href="/">
-          <span className="font-bold text-emerald-300">PassForte</span>
+          <Image src="/logo.svg" width={22} height={22} alt="logo" />
+          <span className="ml-2 font-bold text-emerald-300">PassForte</span>
           {/* <Icons.logo className="mr-2 h-5 w-5" /> PassForte */}
         </Link>
         <div className="ml-auto flex h-full items-center space-x-3">
