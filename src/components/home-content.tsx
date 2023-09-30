@@ -41,7 +41,7 @@ export function HomeContent() {
         </p>
       </m.div>
       <m.div className="flex items-center justify-center" variants={animation}>
-        <Link href="/projects">
+        <Link href="/dashboard">
           <Button variant="ghost" className="group">
             Get Started
             <MoveRight
