@@ -6,6 +6,8 @@ import {
   ChevronLeft,
   ChevronRight,
   CreditCard,
+  EyeIcon,
+  EyeOffIcon,
   File,
   FileText,
   HelpCircle,
@@ -120,6 +122,8 @@ export const Icons = {
   ),
   twitter: Twitter,
   check: Check,
+  eye: EyeIcon,
+  eyeOff: EyeOffIcon,
   google: ({ ...props }: LucideProps) => (
     <svg
       className="mr-2 h-4 w-4"
