@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,29 +9,33 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import CreateSiteForm from "./components/create-site-form";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/utils/icons";
+import Link from "next/link";
 
 export default function CreateSitePage() {
   return (
-    <Card className="max-w-sm m-auto flex-1 mt-20">
+    <Card className="max-w-md m-auto flex-1 mt-20">
+      <Link
+        href="/dashboard"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "absolute left-4 top-4 md:left-8 md:top-8"
+        )}
+      >
+        <>
+          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+          Back
+        </>
+      </Link>
       <CardHeader>
-        <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardTitle className="text-xl">Add Site</CardTitle>
+        {/* <CardDescription>Add you.</CardDescription> */}
       </CardHeader>
       <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Name of your project" />
-            </div>
-          </div>
-        </form>
+        <CreateSiteForm />
       </CardContent>
-      <CardFooter className="flex justify-end">
-        <Button>Deploy</Button>
-      </CardFooter>
     </Card>
   );
 }
